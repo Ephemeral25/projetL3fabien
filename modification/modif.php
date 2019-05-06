@@ -37,6 +37,7 @@ include("../connexion.php");
             $res = $req->fetch(PDO::FETCH_OBJ);
             ?>
             <form action="modif_envoi.php" method="post">
+                <input name="type_modif" type="hidden" value="tutorat"/>
                 Nom de l'enseignant :
                 <input type="text" name="nom_enseignant" value="<?php echo $res->nom_enseignant ?>"/>
                 <br>

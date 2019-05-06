@@ -5,8 +5,7 @@ include("../connexion.php");
     <head>
     </head>
     <body>
-        <form action="modif.php" method="post">
-            <input name="type_modif" type="hidden" value="enseignant"/>
+        <form action="modifEnseignant.php" method="post">
             Sélectionnez un numéro de ligne à modifier :
             <?php
             $req = $connexion->query("SELECT * FROM enseignants");
@@ -22,7 +21,7 @@ include("../connexion.php");
                         <?php
                     } else {
                         ?>
-                        <option value="<?php echo $res->id_pers ?>"><?php echo $res->nom . $res->prenom ?></option>
+                        <option value="<?php echo $res->id_pers ?>"><?php echo $res->nom; echo "&nbsp;"; echo $res->prenom ?></option>
                         <?php
                     }
                 }
@@ -32,64 +31,59 @@ include("../connexion.php");
         <a href="../index.php">Retour menu</a>
         <?php
         if (isset($_POST["id_pers"])) {
-            $req = $connexion->query("SELECT * FROM donnees WHERE id = " . $_POST["id_pers"]);
+            $req = $connexion->query("SELECT * FROM enseignants WHERE id = " . $_POST["id_pers"]);
             $req->execute();
             $res = $req->fetch(PDO::FETCH_OBJ);
             ?>
             <form action="modif_envoi.php" method="post">
+                <input name="type_modif" type="hidden" value="enseignant"/>
+                <input name="type_modif" type="hidden" value="enseignant"/>
+                Date modification:
+                <input type="text" name="nom_enseignant" value="<?php echo $res->d_modification ?>"/>
+                <br>
                 Nom de l'enseignant :
-                <input type="text" name="nom_enseignant" value="<?php echo $res->nom_enseignant ?>"/>
+                <input type="text" name="nom_enseignant" value="<?php echo $res->nom ?>"/>
                 <br>
                 Prénom de l'enseignant :
-                <input type="text" name="prenom_enseignant" value="<?php echo $res->prenom_enseignant ?>"/>
+                <input type="text" name="prenom_enseignant" value="<?php echo $res->prenom ?>"/>
                 <br>
-                Promo :
-                <input type="text" name="promo" value="<?php echo $res->promo ?>"/>
+                id_pers :
+                <input type="text" name="promo" value="<?php echo $res->id_pers ?>"/>
                 <br>
                 Nom de l'élève :
                 <input type="text" name="nom_eleve" value="<?php echo $res->nom_eleve ?>"/>
                 <br>
-                Prénom de l'enseignant :
+                cnu :
                 <input type="text" name="prenom_eleve" value="<?php echo $res->prenom_eleve ?>"/>
                 <br>
-                Société :
+                fid_stat:
                 <input type="text" name="societe" value="<?php echo $res->societe ?>"/>
                 <br>
-                Lieu :
+                telephone :
                 <input type="text" name="lieu" value="<?php echo $res->lieu ?>"/>
                 <br>
-                Année :
+                email :
                 <input type="text" name="annee" value="<?php echo $res->annee ?>"/>
                 <br>
-                "fid_grp" :
+                miage :
                 <input type="text" name="fid_grp" value="<?php echo $res->fid_grp ?>"/>
                 <br>
-                "sesame" :
+                lib_pers :
                 <input type="text" name="sesame" value="<?php echo $res->sesame ?>"/>
                 <br>
-                "import_done" :
-                <select name="import">
-                    <option value="<?php echo $res->import_done ?>" selected="selected"><?php echo $res->import_done ?></option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
-                </select>
-                <br>
-                Visite :
+                last_years :
                 <input type="text" name="visite" value="<?php echo $res->visite ?>"/>
                 <br>
                 Code :
                 <input type="text" name="code" value="<?php echo $res->code ?>"/>
                 <br>
-                "type_f" :
+                fid_cmp :
                 <input type="text" name="type_f" value="<?php echo $res->type_f ?>"/>
                 <br>
-                "fid_pers" :
+                fid_cod_apo :
                 <input type="text" name="fid_pers" value="<?php echo $res->fid_pers ?>"/>
                 <br>
-                "fid_ligne" :
-                <input type="text" name="fid_ligne" value="<?php echo $res->fid_ligne ?>"/>
-                <br>
-                <input type="hidden" name="id" value="<?php echo $res->id ?>" />
+                <input type="hidden" name="id" value="<?php echo $res->id_pers ?>" />
                 <input type="submit" value="Modifier">
             </form>
             <?php

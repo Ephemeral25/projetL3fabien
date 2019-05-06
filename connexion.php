@@ -1,18 +1,21 @@
 <?php
-// On définit les 4 variables nécessaires à la connexion MySQL :
-$hostname = "localhost";
-$port = 3306;
-$user = "root";
-$password = "";
-$nom_base_donnees = "projetphp";
-
-try {
-    $connexion = new PDO('mysql:host=' . $hostname . ';port=' . $port . ';dbname=' . $nom_base_donnees, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-    $connexion->SetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-} catch (Exception $e) {
-    echo 'Erreur : ' . $e->getMessage() . '<br />';
-    echo 'N° : ' . $e->getCode();
-    exit();
+//paramétrage et connexion à la base de données
+function connexion() {
+    $dbdbname = '10.0.2.2:1522/PDB1';
+    $dbuser = 'pmuser';
+    $dbpassword = 'oracle';
+    $dbcharset = 'utf8';
+    if (!isset($connexion)) {
+        try {
+            $conn = oci_connect($dbuser, $dbpassword, $dbdbname, $dbcharset);
+        } 
+        catch (Exception $ex) {
+                print_r(htmlentities($ex['message'], ENT_QUOTES));
+                trigger_error(htmlentities($ex['message'], ENT_QUOTES), E_USER_ERROR);
+        }
+    }
+    $_SESSION['conn'] = $connexion;
+    return $connexion;
 }
-?>
 
+$connexion = connexion($connexion);

@@ -1,23 +1,28 @@
 <?php
 include("../connexion.php");
-$req = $connexion->query("UPDATE donnees "
-        . "SET nom_enseignant = '".$_POST["nom_enseignant"]."',"
-        . "prenom_enseignant = '".$_POST["prenom_enseignant"]."',"
-        . "promo = '".$_POST["promo"]."',"
-        . "nom_eleve = '".$_POST["nom_eleve"]."',"
-        . "prenom_eleve = '".$_POST["prenom_eleve"]."',"
-        . "societe = '".$_POST["societe"]."',"
-        . "lieu = '".$_POST["lieu"]."',"
-        . "annee = '".$_POST["annee"]."',"
-        . "fid_grp = '".$_POST["fid_grp"]."',"
-        . "sesame = '".$_POST["sesame"]."',"
-        . "import_done = '".$_POST["import"]."',"
-        . "visite = '".$_POST["visite"]."',"
-        . "code = '".$_POST["code"]."',"
-        . "type_f = '".$_POST["type_f"]."',"
-        . "fid_pers = '".$_POST["fid_pers"]."',"
-        . "fid_ligne = '".$_POST["fid_ligne"]."' "
-        . "WHERE id = ".$_POST["id"]);
+
+switch($_POST['type_modif']) {
+    case'':
+        break;
+    case'':
+        break;
+}
+$date = date("Y-m-d H:i:s");
+$req = $connexion->query("UPDATE enseignants "
+        . "SET nom = '".$_POST["nom"]."',"
+        . "prenom = '".$_POST["prenom"]."',"
+        . "id_pers = '".$_POST["id_pers"]."',"
+        . "cnu = '".$_POST["cnu"]."',"
+        . "fid_stat = '".$_POST["fid_stat"]."',"
+        . "telephone = '".$_POST["telephone"]."',"
+        . "email = '".$_POST["email"]."',"
+        . "miage = '".$_POST["miage"]."',"
+        . "lib_pers = '".$_POST["lib_pers"]."',"
+        . "last_years = '".$_POST["last_years"]."',"
+        . "fid_cmp = '".$_POST["fid_cmp"]."',"
+        . "fid_cod_apo = '".$_POST["fid_cod_apo"]."',"
+        . "d_modification = '$date',"
+        . "WHERE id_pers = ".$_POST["id_pers"]);
 ?>
 <html>
     <body>

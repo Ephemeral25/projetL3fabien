@@ -4,10 +4,10 @@ include("../connexion.php");
 <h1>Ajouter des données</h1>
 <form action="ajout_envoi.php" method="post">
     <input name="type_ajout" type="hidden" value="enseignant"/>
-    Nom de l'étudiant :
+    Nom de l'enseignant :
     <input type="text" name="nom"/>
     <br>
-    Prénom de l'étudiant :
+    Prénom de l'enseignant :
     <input type="text" name="prenom"/>
     <br>
     Id :

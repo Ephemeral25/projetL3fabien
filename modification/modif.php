@@ -7,7 +7,7 @@ include("../connexion.php");
     </head>
     <body>
         <form action="modif.php" method="post">
-            Sélectionnez un numéro de ligne à modifier :
+            Sélectionnez un num&eacute;ro de ligne &agrave; modifier :
             <?php
             $req = $connexion->query("SELECT * FROM donnees");
             $req->execute();
@@ -47,19 +47,19 @@ include("../connexion.php");
                 Promo :
                 <input type="text" name="promo" value="<?php echo $res->promo ?>"/>
                 <br>
-                Nom de l'élève :
+                Nom de l'&eacute;l&egrave;ve :
                 <input type="text" name="nom_eleve" value="<?php echo $res->nom_eleve ?>"/>
                 <br>
                 Prénom de l'enseignant :
                 <input type="text" name="prenom_eleve" value="<?php echo $res->prenom_eleve ?>"/>
                 <br>
-                Société :
+                Soci&eacute;t&eacute; :
                 <input type="text" name="societe" value="<?php echo $res->societe ?>"/>
                 <br>
                 Lieu :
                 <input type="text" name="lieu" value="<?php echo $res->lieu ?>"/>
                 <br>
-                Année :
+                Ann&eacute;e :
                 <input type="text" name="annee" value="<?php echo $res->annee ?>"/>
                 <br>
                 "fid_grp" :

@@ -1,7 +1,7 @@
 <?php
 include("../connexion.php");
 ?>
-<h1>Ajouter des données</h1>
+<h1>Ajouter des donn&eacute;es</h1>
 <form action="ajout_envoi.php" method="post">
     <input name="type_ajout" type="hidden" value="enseignant"/>
     Nom de l'enseignant :
@@ -21,7 +21,7 @@ include("../connexion.php");
     Fid_stat :
     <input type="text" name="fid_stat"/>
     <br>
-    Téléphone:
+    T&eacute;l&eacute;phone:
     <input type="text" name="telephone"/>
     <br>
     Email :

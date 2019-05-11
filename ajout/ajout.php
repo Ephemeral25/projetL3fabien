@@ -1,31 +1,31 @@
 <?php
 include("../connexion.php");
 ?>
-<h1>Ajouter des données</h1>
+<h1>Ajouter des donn&eacute;es</h1>
 <form action="ajout_envoi.php" method="post">
     <input name="type_ajout" type="hidden" value="tutorat"/>
     Nom de l'enseignant :
     <input type="text" name="nom_enseignant"/>
     <br>
-    Prénom de l'enseignant :
+    Pr&eacute;nom de l'enseignant :
     <input type="text" name="prenom_enseignant"/>
     <br>
     Promo :
     <input type="text" name="promo"/>
     <br>
-    Nom de l'élève :
+    Nom de l'&eacute;l&egrave;ve :
     <input type="text" name="nom_eleve"/>
     <br>
-    Prénom de l'enseignant :
+    Pr&eacute;nom de l'enseignant :
     <input type="text" name="prenom_eleve"/>
     <br>
-    Société :
+    Soci&eacute;t&eacute; :
     <input type="text" name="societe"/>
     <br>
     Lieu :
     <input type="text" name="lieu"/>
     <br>
-    Année :
+    Ann&eacute;e :
     <input type="text" name="annee"/>
     <br>
     "fid_grp" :
